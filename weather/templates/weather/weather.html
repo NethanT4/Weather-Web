@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+</head>
+<body>
+    <header>
+        <h2>Whats the weather like?</h2>
+    </header>
+
+    <main>
+        <section class ="container">
+            <div class = "search-box">
+                <input 
+                type="text"
+                id="cityInput"
+                placeholder="City Name"
+                >
+
+                <button onclick="addCity()">Add City</button>
+            </div>
+
+            <div id="weatherContainer">
+                <div class="weather-card">
+                    <div class="weather-icon">🌩️</div>
+                    <div class = "weather-info">
+                        <h3>Las Vegas</h3>
+                        <p>29° C</p>
+                        <p>thunderstorm with heavy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grey-section"></section>
+    </main>
+</body>
+</html>
