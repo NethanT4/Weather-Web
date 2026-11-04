@@ -26,11 +26,19 @@
 
             <div id="weatherContainer">
                 <div class="weather-card">
-                    <div class="weather-icon">🌩️</div>
+
+                    <!-- temperature icon -->
+                    <img class="weather-icon"
+                    src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png"
+                    alt="Weather Icon">
+
                     <div class = "weather-info">
-                        <h3>Las Vegas</h3>
-                        <p>29° C</p>
-                        <p>thunderstorm with heavy</p>
+                        <!-- city name -->
+                        <h3>{{ city_weather.city }}</h3>
+                        <!-- temperature -->
+                        <p>{{ city_weather.temperature }}</p>
+                        <!-- description -->
+                        <p>{{ city_weather.description }}</p>
                     </div>
                 </div>
             </div>
