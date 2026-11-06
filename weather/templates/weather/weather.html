@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>Whats the weather like?</h2>
+        <center><h2>Whats the weather</h2></center>
     </header>
 
     <main>
@@ -24,6 +24,7 @@
                 <button onclick="addCity()">Add City</button>
             </div>
 
+            {% for city_weather in weather_data %}
             <div id="weatherContainer">
                 <div class="weather-card">
 
@@ -31,17 +32,19 @@
                     <img class="weather-icon"
                     src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png"
                     alt="Weather Icon">
-
+                    
                     <div class = "weather-info">
                         <!-- city name -->
                         <h3>{{ city_weather.city }}</h3>
                         <!-- temperature -->
-                        <p>{{ city_weather.temperature }}</p>
+                        <p>{{ city_weather.temperature }}° C</p>
                         <!-- description -->
                         <p>{{ city_weather.description }}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+
         </section>
         <section class="grey-section"></section>
     </main>
