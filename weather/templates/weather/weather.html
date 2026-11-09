@@ -14,15 +14,14 @@
 
     <main>
         <section class ="container">
-            <div class = "search-box">
-                <input 
-                type="text"
-                id="cityInput"
-                placeholder="City Name"
-                >
+            <form method = "POST">
+                {% csrf_token %}
+                <div class = "search-box">
 
-                <button onclick="addCity()">Add City</button>
-            </div>
+                    {{ form.name }}
+                    <button type = "submit" >Add City</button>
+                </div>
+            </form>
 
             {% for city_weather in weather_data %}
             <div id="weatherContainer">
