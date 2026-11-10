@@ -6,5 +6,6 @@
 pip install django
 pipenv shell
 python -m pip install requests 
+python3 manage.py runserver
 
 -->

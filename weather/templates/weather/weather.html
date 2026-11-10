@@ -1,51 +1,95 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Weather Web</title>
-    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}?v=2">
 </head>
+
 <body>
+
     <header>
-        <center><h2>Whats the weather</h2></center>
+        <center>
+            <h2>Whats the weather</h2>
+        </center>
     </header>
 
     <main>
-        <section class ="container">
-            <form method = "POST">
+
+        <section class="container">
+
+            <!-- Add City Form -->
+            <form method="POST">
                 {% csrf_token %}
-                <div class = "search-box">
+
+                <div class="search-box">
 
                     {{ form.name }}
-                    <button type = "submit" >Add City</button>
+
+                    <button type="submit">
+                        Add City
+                    </button>
+
                 </div>
             </form>
 
-            {% for city_weather in weather_data %}
+
+            <!-- Weather Cards -->
             <div id="weatherContainer">
+
+                {% for city_weather in weather_data %}
+
                 <div class="weather-card">
 
-                    <!-- temperature icon -->
+                    <!-- Weather Icon -->
                     <img class="weather-icon"
-                    src="https://openweathermap.org/img/w/{{ city_weather.icon }}.png"
-                    alt="Weather Icon">
-                    
-                    <div class = "weather-info">
-                        <!-- city name -->
+                         src="https://openweathermap.org/img/wn/{{ city_weather.icon }}@2x.png"
+                         alt="Weather Icon">
+
+
+                    <!-- Weather Information -->
+                    <div class="weather-info">
+
                         <h3>{{ city_weather.city }}</h3>
-                        <!-- temperature -->
+
                         <p>{{ city_weather.temperature }}° C</p>
-                        <!-- description -->
+
                         <p>{{ city_weather.description }}</p>
+
                     </div>
+
+
+                    <!-- Delete Button -->
+                    <form method="POST"
+                          action="{% url 'delete_city' city_weather.id %}"
+                          class="delete-form">
+
+                        {% csrf_token %}
+
+                        <button type="submit" class="delete-btn">
+                            Delete
+                        </button>
+
+                    </form>
+
                 </div>
+
+                {% endfor %}
+
             </div>
-            {% endfor %}
 
         </section>
+
+
+        <!-- Grey Section -->
         <section class="grey-section"></section>
+
     </main>
+
 </body>
 </html>
