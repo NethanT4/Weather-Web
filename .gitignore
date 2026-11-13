@@ -1,8 +1,27 @@
-@"
+
+# Python
 __pycache__/
 *.py[cod]
-db.sqlite3
-.env
+*.pyc
+
+# Virtual Environment
 venv/
+env/
+.venv/
 django-venv/
-"@ | Set-Content -Encoding ascii .gitignore
+
+# Django
+*.log
+db.sqlite3
+media/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
